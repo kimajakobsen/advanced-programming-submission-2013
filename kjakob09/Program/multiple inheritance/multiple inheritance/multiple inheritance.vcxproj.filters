@@ -19,4 +19,21 @@
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stearing.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="wheels.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DieselEngine.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Chassis.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
 </Project>
