@@ -1,21 +1,34 @@
 #ifndef CHASSIS_H
 #define CHASSIS_H
- 
-class Chassis
+#include <string>
+#include "IBody.h"
+
+
+class Chassis : public IBody 
 {
 protected:
 	
-	int _speed;
+	
 
 public:
-	Chassis(){};
+    Chassis(std::string color)
+    {
+        this->_color = color;
+        this->_weight = 100;
+    };
 	~Chassis(){};
-	
-	virtual int accelerate(){};
+	void paint(std::string color);
+    std::string getColor() const;
 
-	virtual int decelerate(){};
+	virtual bool waterTight();
 
-	virtual int fullbreak(){};
+	virtual bool airTight();
+
+    virtual void hit(int weight);
+
+    virtual int getDurability();
+    
+    virtual int getWeight();
 
 
 };

@@ -62,14 +62,24 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Chassis.cpp" />
+    <ClCompile Include="DieselEngine.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Vehicle.cpp" />
+    <ClCompile Include="Wheels.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AmphibianCar.h" />
     <ClInclude Include="Chassis.h" />
     <ClInclude Include="DieselEngine.h" />
-    <ClInclude Include="Engine.h" />
-    <ClInclude Include="stearing.h" />
-    <ClInclude Include="wheels.h" />
+    <ClInclude Include="Hull.h" />
+    <ClInclude Include="IBody.h" />
+    <ClInclude Include="IEngine.h" />
+    <ClInclude Include="IStearing.h" />
+    <ClInclude Include="Propeller.h" />
+    <ClInclude Include="StationCar.h" />
+    <ClInclude Include="Vehicle.h" />
+    <ClInclude Include="Wheels.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

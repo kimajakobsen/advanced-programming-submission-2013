@@ -1,31 +1,34 @@
 #ifndef WHEELS_H
 #define WHEELS_H
+#include "IStearing.h"
+
  
-class Wheels
+class Wheels : public IStearing
 {
 private:
-	enum direction {Left = 0, Straight = 1, Right = 2} _wheelDirection;
-	int _height;
+	
 
 public:
 	Wheels() 
 	{
-		_wheelDirection=Straight;
-		_height = 0;
+		IStearing::_direction=Straight;
+		IStearing::_height = 0;
+        IStearing::_weight = 50;
 	};
 	Wheels(direction dir) 
 	{
-		_wheelDirection=dir;
-		_height = 0;
+		IStearing::_direction=dir;
+		IStearing::_height = 0;
 	};
 	~Wheels(){}
  
-	void turnRight(){};
+   virtual void turnRight();
 
-	void turnStraight(){};
+   virtual void turnStraight();
 
-	void turnLeft(){};
-
+   virtual void turnLeft();
+	
+   virtual int getWeight();
 
 };
  
