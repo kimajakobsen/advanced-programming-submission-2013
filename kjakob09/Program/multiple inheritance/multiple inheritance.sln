@@ -5,6 +5,10 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "multiple inheritance", "mul
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "dishwasher", "dishwasher\dishwasher.vcxproj", "{189C3E67-50FA-406A-A852-5F5589E4A481}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "university1", "univercity\univercity.vcxproj", "{729B60DE-762F-4C0F-B7BB-E39510449B88}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "university2", "university2\university2.vcxproj", "{70AC7F34-4447-4E26-A571-4916F005A97C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -19,6 +23,14 @@ Global
 		{189C3E67-50FA-406A-A852-5F5589E4A481}.Debug|Win32.Build.0 = Debug|Win32
 		{189C3E67-50FA-406A-A852-5F5589E4A481}.Release|Win32.ActiveCfg = Release|Win32
 		{189C3E67-50FA-406A-A852-5F5589E4A481}.Release|Win32.Build.0 = Release|Win32
+		{729B60DE-762F-4C0F-B7BB-E39510449B88}.Debug|Win32.ActiveCfg = Debug|Win32
+		{729B60DE-762F-4C0F-B7BB-E39510449B88}.Debug|Win32.Build.0 = Debug|Win32
+		{729B60DE-762F-4C0F-B7BB-E39510449B88}.Release|Win32.ActiveCfg = Release|Win32
+		{729B60DE-762F-4C0F-B7BB-E39510449B88}.Release|Win32.Build.0 = Release|Win32
+		{70AC7F34-4447-4E26-A571-4916F005A97C}.Debug|Win32.ActiveCfg = Debug|Win32
+		{70AC7F34-4447-4E26-A571-4916F005A97C}.Debug|Win32.Build.0 = Debug|Win32
+		{70AC7F34-4447-4E26-A571-4916F005A97C}.Release|Win32.ActiveCfg = Release|Win32
+		{70AC7F34-4447-4E26-A571-4916F005A97C}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
