@@ -1,0 +1,31 @@
+\section{Introduction}
+A mixin (aka mixin class) provide ekstra functionality and or interface to other classes.
+It is a piece of funktionality that normaly would be a part of a class but it have been sliced out shuch that it is no longer a part of the main class. 
+It is however not ment for standalone use, but it should be reused by many different classes. 
+The mixin is not suppost to be instantiated just like an abstract class. 
+It is important to note that mixins is not the same as traits. 
+A big difference between the two is that mixins contain states where traids is stateless. 
+A mixin is often described as an abstract subclass. An example of a mixin is adding the top border to a window class. 
+This mixin may be reused by several other window classes.
+Porper use of mixins should yield less redundency and allow for reusable components which in the end improves the structure of the design.
+Most compilers are able to process the mixins, except parameters, at compile time and thus reducing run-time costs. 
+One of the biggest drawbacks when using mixins in that they suffers from complex parameterization.
+
+
+In this report I explore the parameterization problem that occure when using mixins. 
+This problem can be solved using structures such as Heterogeneous Value Lists as described in~\cite[p. 3]{drdobbs} or Mixin Layers as explained in~\cite{Smaragdakis:2000:MPC:645417.652070}. 
+This repport only expore the problem and do not investergate the mentioned solutions. 
+The history and development of mixins are explained in~\cite[Introduction]{Bracha:1990:MI:97946.97982}
+
+
+In the next section an example of mixins in c++ is shown and explained. 
+Thereafter I extend the code and demostrate the parameterization problem.
+I then show three apporaches that futher underline the problem and the scalability problems that can occure when using mixins.
+To widen our understanding of mixins I show an example of mixins in scala. 
+The remaining part of the repport contains the conslusion and future work. 
+
+
+
+
+
+

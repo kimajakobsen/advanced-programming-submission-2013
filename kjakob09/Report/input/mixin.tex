@@ -1,0 +1,79 @@
+\section{Mixins in c++}
+
+In c++ mixins are implemented by use of templates and multiple inheritance. 
+I have constructed a small example in order to explain how mixins work in c++.
+The program create a \textit{teacher} class, see~\coderef{Teacher1}, which have a \textbf{print} method. 
+When the \textbf{print} method is call the name and title of the \textit{teacher} object is printed to the console.
+The program contain a mixin called \textit{EmailAddress}, see \coderef{EmailAddress1}, which also contain a \textbf{print} method.
+When the mixin is called with a teacher object and the appropiate parameters as arugments then the mixin invokes the hidden \textbf{print} method of the teacher and thereafter prints the email. 
+In \coderef{main1} the result of called the mixin on the \textit{teacher} object can be seen. The example used in the code is inspired by~\cite{drdobbs}.
+
+
+\begin{lstlisting}[style=cpp, caption=\myCaption{the Teacher.h and Teacher.cpp code. The class Teacher contain one method called print and three fields called \_title, \_firstname, and \_lastname}, label=Teacher1]
+...
+class Teacher 
+{
+private:
+    std::string _title;
+    std::string _firstName;
+    std::string _lastName;
+
+public:
+    Teacher(std::string fn, std::string ln, std::string t) //Constructor
+    {
+        _title = t;
+        _firstName = fn;
+        _lastName = ln;
+    };
+    ~Teacher(){}; //Destructor
+
+    const void print();
+};
+
+...
+
+const void Teacher::print() //implementaion of the print method
+{
+    std::cout << this->_title << " " << this->_lastName << ", " << this->_firstName; 
+}
+\end{lstlisting}
+
+\begin{lstlisting}[style=cpp, caption=\myCaption{The mixin EmailAddress. The mixin requires a class as input and four parameters. The print function of the recieved class is invoked and it prinst the email address.  }, label=EmailAddress1]
+...
+template <class Base>
+class EmailAddress: public Base
+{
+public:
+    EmailAddress(std::string fn,std::string ln, std::string t, std::string e )
+        :Base(fn,ln,t),_email(e){}
+        //note that the base class must have a constructor that accept three strings.
+
+    const void print() 
+    {
+        Base::print(); //note that the base class also must have a print method.
+        //I a normal usecase one would restrict that base class to avoid programmer errors. 
+        cout << " - " << _email;
+    }
+private:
+    std::string _email;
+};
+...
+
+\end{lstlisting}
+
+
+
+\begin{lstlisting}[style=cpp, caption=\myCaption{The mixin \textit{EmailAddress} is called on the object teacher. The console output is written as a comment}, label=main1]
+	EmailAddress<Teacher> alexandre("Alexandre","David","Lector","adavid@cs.aau.dk");
+	alexandre.print();
+	//output: Lector David, Alexandre - adavid@cs.aau.dk 	
+
+\end{lstlisting}
+
+This is a simple use of a mixin class and it can be adobted to a number of different uses.
+In the program folder a exteded version of this program can be seen, it is located in the university1 project. 
+The univercity1 project also contain a mixin called \textit{PhoneNumber} which is similar to \textit{EmailAddress} except that is adds a phonenumber.
+
+If i want to further exted my program such that is is possible to use both mixin on the teacher object then I meet the parameterzition problem.
+We now explore different naive solution to this problem in order to widen our understand of the problem.
+

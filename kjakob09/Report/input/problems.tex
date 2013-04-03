@@ -1,0 +1,49 @@
+\section{Parameterization Problem}
+
+\subsection{Combining Mixin Classes}
+The first solution we consider is adding new mixin class.
+The full implementaion of this solution can be found in the university2 project.
+The appraoch is to add a new mixin called \textit{EmailAndPhone} that call the print of the base object and of the email and phone mixin.
+A new method is added to the existing mixins that only print email and phone respectivly.
+The new method \textbf{emailPrint} of \textit{EmailAddress} can be seen in ~\coderef{EmailAddress2}.
+
+\begin{lstlisting}[style=cpp, caption=\myCaption{}, label=emailandphone]
+...
+template <class Base>
+class EmailAndPhone: public EmailAddress<Base>, public PhoneNumber<Base> //extends the mixins
+{
+public:
+    EmailAndPhone(std::string fn,std::string ln, std::string t, std::string e, std::string pn)
+        :EmailAddress(fn,ln,t,e),PhoneNumber(fn,ln,t,pn){}
+        //The constructor calls the constructors of the other two mixins.
+    
+    const void print() 
+    {
+        Base::print();
+        EmailAddress::emailPrint();
+        PhoneNumber::phonePrint();
+    }
+};
+...
+\end{lstlisting}
+
+
+\begin{lstlisting}[style=cpp, caption=\myCaption{}, label=EmailAddress2]
+...
+const void emailPrint() 
+    {     
+        cout << " " << _email;
+    }
+...
+\end{lstlisting}
+
+This apprach causes several problems. 
+Firstly we have to define a new method in all our mixins to insure that they can be used alone and in combination. Secondly then we have to define a new mixin for each combination we want to use. And last then a instance of \textit{Base} in created both in \textit{EmailAddress} and \textit{PhoneNumber}, alternatively an additional constructor could be define for the mixin that do not require the parameters of the \textit{base} class. 
+EmailAndPhone is the responsiable for calling the base class with the required parameters.
+
+This naive approach require comprehensive rewriting of code and have at least three consequences. 
+
+\subsection{Additional Constructors}
+
+
+\subsection{Parameter Class}
